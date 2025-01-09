@@ -184,16 +184,7 @@ def visualize_analysis(df: pd.DataFrame, output_prefix: str):
     plt.savefig(f'{output_prefix}_response_times.png')
     plt.close()
     
-    # 2. Top 10 slowest operations (average)
-    # plt.figure(figsize=(12, 12), dpi=300)
-    # top_slow = df.groupby('operation_name')['total_time'].mean().nlargest(50)
-    # sns.barplot(x=top_slow.values, y=top_slow.index)
-    # plt.axvline(x=1000, color='red', linestyle='--')
-    # plt.title('Top 50 Slowest Operations (Average)')
-    # plt.xlabel('Average Response Time (ms)')
-    # plt.tight_layout()
-    # plt.savefig(f'{output_prefix}_top_50_slow.png')
-    # plt.close()
+    # 2. Top 50 slowest operations (average)
     plot_top_slow_operations(df, f'{output_prefix}_top_50_slow')
     
     # 3. Operation timing breakdown
